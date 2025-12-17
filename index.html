@@ -145,7 +145,7 @@
 
         .galleryimg {
             width: 100%;
-            opacity: 0;
+            display: none;
             transition: opacity 1s;
             border-radius: 5px;
             position: absolute;
@@ -416,24 +416,34 @@
             //setTimeout(() => {writeToTextbox(intro, intro_text, fade_in_logo)}, 500);
             megacontainer.style.opacity = 1;
             ship.style.left = "-200px";
-            img1.style.opacity = 1;
+            img1.style.display = "block";
+            img1.style.zindex = 1;
+            img2.style.zindex = -1;
+            img3.style.zindex = -1;
+            img4.style.zindex = -1;
+            img5.style.zindex = -1;
+            img6.style.zindex = -1;
         }
 
 
 
         function advanceImage() {
-            images[curr_image % 6].style.opacity = 0;
+            //images[curr_image % 6].style.opacity = 0;
+            images[curr_image % 6].style.display = "none";
             curr_image++;
-            images[curr_image % 6].style.opacity = 1;
+            //images[curr_image % 6].style.opacity = 1;
+            images[curr_image % 6].style.display = "block";
         }
 
         function regressImage() {
-            images[curr_image % 6].style.opacity = 0;
+            //images[curr_image % 6].style.opacity = 0;
+            images[curr_image % 6].style.display = "none";
             curr_image--;
             if (curr_image < 0) {
                 curr_image = 5;
             }
-            images[curr_image % 6].style.opacity = 1;
+            //images[curr_image % 6].style.opacity = 1;
+            images[curr_image % 6].style.display = "block";
         }
 
         nextbutton.onclick = function () {
